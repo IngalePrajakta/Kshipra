@@ -18,6 +18,9 @@ import bookings from '@/views/bookings.vue'
 import createnewbookings from '@/views/createnewbookings.vue'
 import createnewuser from '@/views/createnewuser.vue'
 import office from '@/views/office.vue'
+import confirmations from '@/views/confirmations.vue'
+import customers from '@/views/customers.vue'
+import createcustomer from '@/views/createcustomer.vue'
 
 Vue.use(Router)
 
@@ -120,7 +123,22 @@ export default new Router({
       name: 'createnewuser',
       component: createnewuser 
     },
-  
+    {
+      path: '/confirmations',
+      name: 'confirmations',
+      component: confirmations 
+    },
+    {
+      path: '/customers',
+      name: 'customers',
+      component: customers 
+    },
+    {
+      path: '/createcustomer',
+      name: 'createcustomer',
+      component:  createcustomer
+    }
+
 
   ]
 })

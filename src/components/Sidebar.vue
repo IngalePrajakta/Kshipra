@@ -49,7 +49,7 @@
         { icon: 'mdi-calendar-check', title: 'Confirmations', path: '/confirmation'},
         { isHeader: true, title: 'Users' },
         { icon: 'mdi-account-multiple', title: 'Office', path: '/office'},
-        { icon: 'mdi-account', title: 'Customer'},
+        { icon: 'mdi-account', title: 'Customer', path: '/custmer'},
         { icon: 'mdi-chart-bar', title: 'Reports'}
       ],
     })

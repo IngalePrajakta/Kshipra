@@ -3,15 +3,10 @@
     <v-data-table :headers="headers" :items="packages" class="elevation-1">
       <template v-slot:top>
         <v-toolbar flat color="white">
-          <v-toolbar-title>Office Users</v-toolbar-title>
+          <v-toolbar-title>Confirmations</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <div class="flex-grow-1"></div>
           <v-dialog v-model="dialog" max-width="500px">
-            <template v-slot:activator="{ on }">
-              <router-link to="/createnewuser">
-                <v-btn color="primary" dark class="mb-2">Create new User</v-btn>
-              </router-link>
-            </template>
             <v-card>
               <v-card-title>
                 <span class="headline">{{ formTitle }}</span>
@@ -22,13 +17,25 @@
                   <v-row>
                     
                     <v-col cols="12" sm="6" md="4">
-                      <v-text-field v-model="editedItem.Contact_name" label="Contact Name"></v-text-field>
+                      <v-text-field v-model="editedItem.customer_name" label="Customer Name"></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
-                      <v-text-field v-model="editedItem.Contact_number" label="Contact Number"></v-text-field>
+                      <v-text-field v-model="editedItem.contact_number" label="Contact Number"></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
-                      <v-text-field v-model="editedItem.office_name" label="Office Name"></v-text-field>
+                      <v-text-field v-model="editedItem.confirm" label="Confirmed Package"></v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.days" label="Days"></v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.person" label="Person"></v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.cost" label="Cost"></v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.status" label="Status"></v-text-field>
                     </v-col>
                   </v-row>
                 </v-container>
@@ -74,24 +81,36 @@
       return {
         dialog: false,
         headers: [
-          { text: 'Contact Name', align: 'left', value: 'Contact_name' },
-          { text: ' Contact Number', value: 'Contact_number' },
-          { text: 'Office Name', value: 'office_name' },
+          { text: 'Customer Name', align: 'left', value: 'customer_name' },
+          { text: 'Contact Number', value: 'contact_number' },
+          { text: 'Confirmed Package', value: 'confirm' },
+          { text: 'Days', value: 'days' },
+          { text: 'Person', value: 'person' },
+          { text: 'Cost', value: 'cost' },
+           { text: 'Status', value: 'status' },
           { text: 'Actions', value: 'action', sortable: false },
         ],
         packages: [],
         editedIndex: -1,
         editedItem: {
       
-          Contact_name: '',
-          Contact_number: '',
-          office_name: '',
+          customer_name: '',
+          contact_number: '',
+          confirm: '',
+          days:'',
+          person:'',
+          cost:'',
+          status:''
         },
         defaultItem: {
-      
-          Contact_name: '',
-          Contact_number: '',
-          office_name: '',
+
+          customer_name: '',
+          contact_number: '',
+          confirm: '',
+          days:'',
+          person:'',
+          cost:'',
+          status:''
         },
       }
     },
@@ -117,15 +136,23 @@
       initialize () {
         this.packages = [
           {
-            Contact_name: 'Contact Name',
-            Contact_number: 'Contact Number',
-            office_name: 'Office Name',
+            customer_name: 'Customer Name',
+            contact_number: 'Contact Number',
+            confirm: 'Confirmed Package',
+            days:'Days',
+            person:'3',
+            cost:'7000000',
+            status:'Paid:cash'
           },
-          {   
-          Contact_name: 'Contact Name',
-          Contact_number: 'Contact Number',
-          office_name: 'Office Name',
-          }
+          { 
+            customer_name: 'Customer Name',
+            contact_number: 'Contact Number',
+            confirm: 'Confirmed Package',
+            days:'Days',
+            person:'3',
+            cost:'7000000',
+            status:'Paid:cheque'
+           }
         ]
       },
 
